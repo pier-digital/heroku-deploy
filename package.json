@@ -3,10 +3,12 @@
   "version": "2.1.5",
   "description": "A simple action to deploy container to Heroku Container Registry",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky install"
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npx @zeit/ncc build index.js && git add ."
+      "pre-commit": "yarn ncc build index.js && git add ."
     }
   },
   "repository": {
@@ -32,6 +34,7 @@
     "@actions/github": "^2.1.1"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.28.3",
     "husky": "^4.2.5"
   }
 }
