@@ -1,5 +1,5 @@
-name: "Deploy Docker Image to Heroku App"
-author: "Jean Carlos Taveras"
+name: "Deploy Docker Image to Heroku"
+author: "Mauricio Ragueb Banduk"
 description: "A simple action to build, push and deploy a Docker Image to your Heroku app."
 inputs:
   email:
