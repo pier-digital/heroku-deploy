@@ -18,12 +18,13 @@ async function loginHeroku() {
 async function buildPushAndDeploy() {
   const appName = core.getInput('app_name');
   const dockerFilePath = core.getInput('dockerfile_path') || '.';
+  const dockerFile = core.getInput('dockerfile') || 'Dockerfile';
   const buildOptions = core.getInput('options') || '';
   const herokuAction = herokuActionSetUp(appName);
   const formation = core.getInput('formation');
   
   try {
-    await exec(`docker build --file ${dockerFilePath}/Dockerfile ${buildOptions} --tag registry.heroku.com/${appName}/${formation} ${dockerFilePath}`);
+    await exec(`docker build --file ${dockerFilePath}/${dockerFile} ${buildOptions} --tag registry.heroku.com/${appName}/${formation} ${dockerFilePath}`);
     console.log('Image built 🛠');
 
     await exec(herokuAction('push'));
