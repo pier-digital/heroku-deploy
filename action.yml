@@ -17,12 +17,10 @@ inputs:
     required: true
   dockerfile_path:
     description: "Dokerfile path"
-    default: "."
-    required: false
+    required: true
   dockerfile:
     description: "Dokerfile"
-    default: "Dockerfile"
-    required: false
+    required: true
   options:
     description: "Optional build parameters"
     required: false
